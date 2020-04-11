@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+
+		.level1 {
+			background-image: url(bg3.jpg);
+			background-size: 100% 100%;
+			width: 2500px;
+			height: 950px;
+		}
+		.welcome {
+			height: 200px;
+			width: 900px;
+			position: absolute;
+			top: 300px;
+			left: 900px;
+			font-family: COMIC SANS MS;
+			font-size: 60px;
+		}
+		.welcome2 {
+			height: 200px;
+			width: 900px;
+			position: absolute;
+			top: 400px;
+			left: 1000px;
+			font-family: COMIC SANS MS;
+			font-size: 60px;
+
+		}
+		.btn {
+			height: 100px;
+			width: 200px;
+			opacity: 0.8;
+			border-radius: 30px;
+			font-family: COMIC SANS MS;
+			font-size: 40px;
+		}
+		.level2 {
+			background-image: url(bg4.jpg);
+			background-size: 100% 100%;
+			width: 2500px;
+			height: 950px;
+			display: none;
+		}
+		.level3 {
+			background-image: url(bg5.jpg);
+			background-size: 100% 100%;
+			width: 2500px;
+			height: 950px;
+			display: none;
+		}
+		.level4 {
+			background-image: url(bg7.jpg);
+			background-size: 100% 100%;
+			width: 2500px;
+			height: 950px;
+			display: none;
+
+		}
+		.level5 {
+			background-image: url(bg2.jpg);
+			background-size: 100% 100%;
+			display: flex;
+			width: 2500px;
+			height: 1000px;
+			display: none;
+		}
+		/*herthstone*/
+		.enemy{
+			text-align:center;
+			height: 250px;
+			transition: 2s;
+			position: absolute;
+			top: 50px;
+			left: 1000px;
+		}
+		.player_img{
+			width:200px;
+			height: 300px;
+			margin-left: auto;
+			margin-right: auto;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 2s;
+
+		}
+		.enemy_img{
+			width:200px;
+			height: 300px;
+			margin-left: auto;
+			margin-right: auto;
+			background-size: 100% 100%;
+			position: relative;
+			transition: 2s;
+
+		}
+		.player{
+			text-align: center;
+			height: 250px;
+			transition: 2s;
+			position: absolute;
+			top: 500px;
+			left: 1000px;
+
+		}
+		.player_property{
+			position: absolute;
+			top:80%;
+
+
+		}
+		.enemy_name{
+			color: white; 
+			font-family: COMIC SANS MS;
+
+		}
+		.player_name{
+			color: white; 
+			font-family: COMIC SANS MS;
+		}
+		.player_damage{
+			color: white; 
+			font-family: COMIC SANS MS;
+		}
+		.player_hp{
+			color: white; 
+			font-family: COMIC SANS MS;
+		}
+		.enemy_damage{
+			color: white; 
+			font-family: COMIC SANS MS;
+		}
+		.enemy_hp{
+			color: white; 
+			font-family: COMIC SANS MS;
+		}
+		/*hidden objects*/
+		.bg7 {
+			height: 950px;
+			width: 2500px;
+			position: absolute;
+			top: 0px;
+			left: 100px;
+		}
+
+		.box1 {
+			height: 950px;
+			width: 150px;
+			background: black;
+			position: absolute;
+			top: 0px;
+		}
+		.txt {
+			color: white;
+			font-family: arial;
+
+
+		}
+		.img {
+			height: 70px;
+			width: 70px;
+		}
+		.img2 {
+			height: 70px;
+			width: 120px;
+		}
+		.img3 {
+			height: 70px;
+			width: 90px;
+		}
+		.img10 {
+			height: 100px;
+			width: 120px;
+		}
+		.score {
+			color: white;
+			font-family: arial;
+			position: absolute;
+			top: 700px;
+			left: 0px;
+		}
+		.btn3 {
+			background: white;
+			height: 40px;
+			width: 100px;
+			position: absolute;
+			top: 570px;
+			left: 15px;
+			border-radius: 10px;
+		}
+		.img4 {
+			height: 70px;
+			width: 70px;
+			position: absolute;
+			top: 500px;
+			left: 1000px;
+			display: none;
+		}
+		.img5 {
+			height: 70px;
+			width: 90px;
+			position: absolute;
+			top: 230px;
+			left: 500px;
+			display: none;
+		}
+		.img6 {
+			height: 70px;
+			width: 90px;
+			position: absolute;
+			top: 590px;
+			left: 30px;
+			display: none;
+		}
+		.lala {
+			height: 100px;
+			width: 120px;
+			position: absolute;
+			top:700px;
+			left: 600px;
+			display: none;
+		}
+		/*tablegame*/
+		.boxs {
+			height: 100px;
+			width: 100px;
+			background-color: #004191;
+			border: solid white;
+			position: absolute;
+			opacity: 0.9;
+		}
+		.firsBox {
+			background-color: white;
+			position: absolute;
+		}
+		.secondBox {
+			background-color: white;
+			position: absolute;
+		}
+		.win {
+			height: 200px;
+			widows: 400px;
+			position: absolute;
+			left: 600px;
+			display: none;
+		}
+		.naruto {
+			height: 400px;
+			width: 200px;
+			position: absolute;
+			left: 20px;
+			top: 200px;
+			display: none;
+		}
+		.sasuke{
+			height: 400px;
+			width: 200px;
+			position: absolute;
+			left: 1300px;
+			top: 200px;
+			display: none;
+		}
+		.bt1 {
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			top: 50px;
+		}
+		.bt2 {
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			top: 50px;
+			
+		}
+
+	</style>
+</head>
+<body>
+	<!-- level1 -->
+	<div class="level1" >
+		<div class="welcome text-white">Добро Пожаловать</div>
+		<div class="welcome2 text-white"> в Коноху!</div>
+	    <button class="btn bg-info text-white btn" style="position: absolute;top: 500px;left: 1050px;">Играть </button>
+	</div>
+	<!-- level2 -->
+	<div class="level2">
+		 <button class="btn bg-info text-white btn1" style="position: absolute;left: 1050px;top: 350px;">Игра №1</button>
+		 <button class="btn bg-info text-white btn5"style="position: absolute;left: 1050px;top: 500px;">Игра №2</button>
+		 <button class="btn bg-info text-white btn6" style="position: absolute;left: 1050px;top: 650px;">Игра №3</button>
+	</div>
+	<!-- level3 -->
+	<div  class="level3">
+	<div class="enemy">
+		<h1 class="enemy_name"></h1>
+		<div class="enemy_img">
+			<h2 class="enemy_hp player_property" style="left: 82%;">0</h2>
+			<h2 class="enemy_damage player_property" style="left: 10%;">0</h2>
+		</div>	
+	</div>
+	<div class="player">
+		<h1 class="player_name"></h1>
+		<div class="player_img">
+			<h2 class="player_hp player_property" style="left: 82%;">0</h2>
+			<h2 class="player_damage player_property" style="left: 10%;">0</h2>
+		</div>
+	</div>
+	<button class="btn bg-info text-white cnopka"style="position: absolute;left: 1900px;top: 700px;">Игра №2</button>
+	</div>
+	<!-- level4 -->
+	<div class="level4">
+		<div class="box1 ">
+		<h2 class="txt">Найди:</h2>
+		<h3 class="txt">1.</h3>
+		<img src="dm.png" class="img">
+		<h3 class="txt">2.</h3>
+		<img src="stlogo.png" class="img2">
+		<h3 class="txt">3.</h3>
+		<img src="3.png" class="img3">
+		<h2 class="txt" style="position: absolute;top: 700px;">ОЧКИ: <span class="score"></span></h2>
+		<button class="btn3"><h3>Начать</h3></button>
+	</div>
+	<div  class="bg7">
+		<div ><img src="dm2.png" class="img4"></div>
+		<div ><img src="stlogo2.png" class="img5"></div>
+		<div ><img src="32.png" class="img6"></div>
+
+	</div>
+	<button class="btn bg-info text-white cnopka2" style="position: absolute;left: 1900px;top: 700px;">Игра №3</button>
+	</div>
+	<!-- level5 -->
+	<div class="level5" >
+		<div class="content" style="display: flex;">
+			
+			<!--кубик наруто-->
+		<div style="margin-left: 10px;">
+		<h4 style="color: white;position: absolute;top: 0">Score: <span class="score1">100</span></h4>
+		<img src="dice2.png" class="bt1">	
+		</div>
+		<!--кубик саске-->
+		<div style="margin-left: 1600px;">
+		<h4 style="color: white;">Score: <span class="score2">100</span></h4>
+		<img src="dice.png" class="bt2" >		
+	    </div>
+		
+		<div class="boxs firsBox" style=" left: 400px; top: 100px;background-image: url(player11.png);
+			background-size: 100% 100%;">1</div>
+			<div class="boxs firsBox" style=" left: 400px; top: 100px;background-image: url(player22.png);
+			background-size: 100% 100%;">1</div>
+		<div class="boxs" style="left: 500px;top: 100px;">2</div>
+		<div class="boxs" style=" left:600px; top: 100px;">3</div>
+				
+		<div class="boxs" style="left: 700px;top: 100px;">4</p></div> 
+		<div class="boxs" style="left:800px; top: 100px; "><img src="bonus.png" style="height: 90px;width: 90px;"><p  style="opacity: 0">5</p></div>
+		<div class="boxs" style="left:900px;top: 100px; ">6</div>
+		<div class="boxs" style="left: 1000px;top: 100px; ">7</div>
+
+		<div class="boxs" style=" left:1100px;top: 100px; ">8</div>
+		<div class="boxs" style=" left: 1200px;top: 100px;" ><img src="speedup.webp" style="height: 90px;width: 90px;"><p  style="opacity: 0">9</p></div>
+		<div class="boxs" style="  left:1200px;top: 200px; ">10</div>
+		<div class="boxs" style="  left:1200px; top: 300px">11</div>
+
+		<div class="boxs" style="left:1200px; top: 400px ">12</div>
+		<div class="boxs" style="left:1200px; top: 500px "><img src="back.png" style="height: 90px;width: 90px;"><p  style="opacity: 0">13</div>
+		<div class="boxs" style="left:1200px; top: 600px ">14</div>	
+		<div class="boxs" style="left:1200px; top: 700px ">15</div>		
+
+		<div class="boxs" style="left:1200px; top: 800px ">16</div>
+		<div class="boxs " style="left:1200px; top: 900px;">17</div>
+		<div class="boxs" style="left:1100px; top: 900px">18</div>
+		<div class="boxs" style="left:1000px; top: 900px">19</div>
+
+		<div class="boxs" style="left:900px; top: 900px">20</div>
+		<div class="boxs" style="left:800px; top: 900px"><img src="bonus.png" style="height: 90px;width: 90px;"><p  style="opacity: 0">21</p></div>
+		<div class="boxs" style="left:700px; top: 900px">22</div>
+		<div class="boxs" style="left:600px; top: 900px">23</div>
+
+		<div class="boxs" style="left:500px; top: 900px">24</div>
+		<div class="boxs" style="left:400px; top: 900px"><img src="speedup.webp" style="height: 90px;width: 90px;"><p  style="opacity: 0">25</p></div>
+		<div class="boxs" style="left:400px; top: 800px">26</div>
+		<div class="boxs" style="left:400px; top: 700px">27</div>
+
+		<div class="boxs" style="left:400px; top: 600px">28</div>
+		<div class="boxs" style="left:400px; top: 500px"><img src="back.png" style="height: 90px;width: 90px;"><p  style="opacity: 0">29</p></div>
+		<div class="boxs" style="left:400px; top: 400px">30</div>	
+		<div class="boxs" style="left:400px; top: 300px">31</div>		
+		<div class="boxs" style="left:500px; top: 300px">32</div>
+		<div class="boxs" style="left:600px; top: 300px">33</div>	
+		<div class="boxs" style="left:700px; top: 300px"><img src="bonus.png" style="height: 90px;width: 90px;"><p  style="opacity: 0">34</p></div>		
+
+		<div class="boxs" style="left:800px; top: 300px">35</div>
+		
+		<div class="boxs" style="left:900px; top: 300px">36</div>
+		<div class="boxs" style="left:1000px; top: 300px">37</div>
+		<div class="boxs" style="left:1000px; top: 400px"><img src="speedup.webp" style="height: 90px;width: 90px;"><p  style="opacity: 0">38</p></div>
+		<div class="boxs" style="left:1000px; top: 500px">39</div>
+		<div class="boxs" style="left:1000px; top: 600px">40</div>
+		<div class="boxs" style="left:1000px; top: 700px">41</div>
+		<div class="boxs" style="left:900px; top: 700px">42</div>
+
+		<div class="boxs" style="left:800px; top: 700px">43</div>
+		<div class="boxs" style="left:700px; top: 700px">44</div>
+		<div class="boxs" style="left:600px; top: 700px">45</div>
+		<div class="boxs" style="left:600px; top: 600px"><img src="back.png" style="height: 90px;width: 90px;"><p  style="opacity: 0">46</p></div>
+		<div class="boxs" style="left:600px; top: 500px">47</div>
+		<div class="boxs" style="left:700px; top: 500px">48</div>
+		<div class="boxs" style="left:800px; top: 500px">49</div>
+		<div class="boxs " style="left: 800px;top: 600px;">
+			<img src="finish.png" style="height: 90px;width: 90px;"><p  style="opacity: 0">finish</p></div>
+		
+		</div>
+		<!--последние дивы-->
+		<div class="boxs" style="margin-left: 130px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 240px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 350px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 460px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 570px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 680px; margin-top: 110px; background-color: green; opacity: 0"></div>
+	
+	</div>	
+	
+	<div class="naruto"><img src="naruto2.png"></div>
+	<div class="sasuke"><img src="sasuke2.png"></div>
+	</div>
+</html>
+<script type="text/javascript">
+	let btn = document.querySelector('.btn');
+	let btn1 = document.querySelector('.btn1');
+	let btn5 = document.querySelector('.btn5');
+	let btn6 = document.querySelector('.btn6');
+	let cnopka = document.querySelector('.cnopka');
+	let cnopka2 = document.querySelector('.cnopka2');
+	let level1 = document.querySelector('.level1');
+	let level2 = document.querySelector('.level2');
+	let level3 = document.querySelector('.level3');
+	let level4 = document.querySelector('.level4');
+	let level5 = document.querySelector('.level5');
+	let player = document.querySelector('.player');
+	let enemy = document.querySelector('.enemy');
+	let img_p = document.querySelector('.player_img');
+	let img_e = document.querySelector('.enemy_img');
+	let hp_p = document.querySelector(".player_hp");
+	let hp_e = document.querySelector(".enemy_hp");
+	let dmg_p = document.querySelector(".player_damage");
+	let dmg_e = document.querySelector(".enemy_damage");
+	let name_p = document.querySelector(".player_name");
+	let name_e = document.querySelector(".enemy_name");
+	let btn_n = document.querySelector('.bt1')
+	let btn_c = document.querySelector('.bt2')
+	let boxs = document.querySelectorAll('.boxs');
+	let shag_n = 0;
+	let score_n = 100;
+    let score_nn = document.querySelector('.score1')
+    let shag_c = 0;
+	let score_c = 100;
+	let score_cc = document.querySelector('.score2')
+	let naruto = document.querySelector('.naruto')
+	let sasuke = document.querySelector('.sasuke')
+	 let createRand = function() {
+		let numRand = Math.random() * 6;
+		let numRound = Math.round(numRand);
+		return numRound;
+	}
+		let getRandom = function(){
+			let num = Math.random() * 10;
+			let roundNum = Math.round(num);
+			return roundNum;
+		}
+		let player1 = {
+			name : "игрок",
+			hp : getRandom(),
+			url : "url(1.png)",
+			dmg : getRandom()
+		}
+		let enemy2 = {
+			name : "враг",
+			hp : getRandom(),
+			url : "url(2.png)",
+			dmg : getRandom()
+		}
+		img_p.style.backgroundImage = player1.url;
+		img_e.style.backgroundImage = enemy2.url;
+		hp_p.innerHTML = player1.hp;
+		hp_e.innerHTML = enemy2.hp;
+		dmg_p.innerHTML = player1.dmg;
+		dmg_e.innerHTML = enemy2.dmg;
+		name_p.innerHTML = player1.name;
+		name_e.innerHTML = enemy2.name;
+	btn.onclick = function(){
+		level1.style.display = 'none';
+		level2.style.display = 'block';
+	}
+	btn1.onclick = function(){
+		level2.style.display = 'none';
+		level3.style.display = 'block';
+		let attac = function(){
+			player1.hp = player1.hp - enemy2.dmg;
+			hp_e.innerHTML = enemy2.hp;
+			enemy2.hp = enemy2.hp - player1.dmg;
+			hp_p.innerHTML = player1.hp;
+			alert('атака началась');
+			if (player1.hp<enemy2.hp) {
+				player.style.opacity = 0;
+				player1.name = 'игрок проиграл';
+				name_p.innerHTML = player1.name;
+			}
+			if (enemy2.hp<player1.hp) {
+				enemy.style.opacity = 0;
+				enemy2.name = 'враг проиграл';
+				name_e.innerHTML = enemy2.name;
+			}
+		}
+		setTimeout(attac,5000)
+	}
+	let number = 0;
+	btn5.onclick = function(){
+		level2.style.display = 'none';
+		level4.style.display = 'block';
+		document.querySelector('.score').innerHTML = number;
+		document.querySelector('.btn3').onclick = function(){
+			number = number + 1;
+		document.querySelector('.score').innerHTML = number;
+		}
+		document.querySelector('.btn3').onclick = function(){
+			alert('Найди девятихвостого (его фото под номeром 1 )');
+			document.querySelector('.img4').style.display = 'block';
+		}
+		document.querySelector('.img4').onclick = function(){
+			number = number + 1;
+			document.querySelector('.score').innerHTML = number;
+		    alert('Правильно!')
+		    document.querySelector('.img4').style.display = 'none';
+		    alert('Найди логотип "naruto" (его фото под номeром 2 )')
+		    document.querySelector('.img5').style.display = 'block';
+		}
+		document.querySelector('.img5').onclick = function(){
+			number = number + 1;
+			document.querySelector('.score').innerHTML = number;
+		    alert('Правильно!')
+		    document.querySelector('.img5').style.display = 'none';
+		    alert('Найди наших друзей в пиксельной рисовке (их фото под номeром 3 )')
+		}
+		document.querySelector('.img5').onclick = function(){
+			number = number + 1;
+			document.querySelector('.score').innerHTML = number;
+		    alert('Правильно!')
+		    document.querySelector('.img5').style.display = 'none';
+		    alert('Найди Сакуру,Наруто и Саске (их фото под номeром 3 )')
+		     document.querySelector('.img6').style.display = 'block';
+		}
+		document.querySelector('.img6').onclick = function(){
+			number = number + 1;
+			document.querySelector('.score').innerHTML = number;
+		    alert('Правильно!')
+		    document.querySelector('.img6').style.display = 'none';
+		     alert('Вы выиграли!')
+		}
+		
+	}
+	btn6.onclick = function(){
+		level2.style.display = 'none';
+		level5.style.display = 'block';
+		naruto.style.display = 'block';
+		sasuke.style.display = 'block';
+		btn_n.onclick = function(){
+		boxs[shag_n].style.backgroundImage = 'none';
+		let numRand = createRand();
+		shag_n = shag_n + numRand;
+		alert('у тебя выпало' + numRand + '.иди на клетку' + shag_n);
+		boxs[shag_n].style.backgroundImage = 'url(player11.png)';
+		boxs[shag_n].style.backgroundSize = '100% 100%';
+		score_n = score_n + 20
+		score_nn.innerHTML = score_n;
+		if(shag_n == 13||shag_n == 29||shag_n == 46){
+				boxs[shag_n].style.backgroundImage = 'none';
+				shag_n = shag_n - 1;
+				boxs[shag_n].style.backgroundImage = 'url(player11.png)';
+				boxs[shag_n].style.backgroundSize = '100% 100%';
+				alert('Ты наступил на бомбу. Идешь на клетку ' + shag_n);
+				score_n = score_n - 30;
+				score_nn.innerHTML = score_n;
+			}
+		
+		if (shag_n == 25||shag_n == 9||shag_n == 38) {
+			boxs[shag_n].style.backgroundImage = 'none';
+				shag_n = shag_n + 5;
+				boxs[shag_n].style.backgroundImage = 'url(player11.png)';
+				boxs[shag_n].style.backgroundSize = '100% 100%';
+				alert('ты попал на ускоритель. идешь на ' + shag_n);
+				score_n = score_n + 50;
+				score_nn.innerHTML = score_n;
+		}
+		if (shag_n == 5||shag_n == 19||shag_n == 34) {
+				alert('ты попал на БОНУС ');
+				score_n = score_n + 500;
+				score_nn.innerHTML = score_n;
+		}
+		
+		
+	}
+	btn_c.onclick = function(){
+			boxs[shag_c].style.backgroundImage = 'none';
+			let numRand = createRand();
+			shag_c = shag_c + numRand;
+			alert('у тебя выпало' + numRand + '.иди на клетку' + shag_c);
+			boxs[shag_c].style.backgroundImage = 'url(player22.png)';
+			boxs[shag_c].style.backgroundSize = '100% 100%';
+			score_c = score_c + 20
+			score_cc.innerHTML = score_c;
+			if(shag_c == 5||shag_c == 21){
+					boxs[shag_c].style.backgroundImage = 'none';
+					shag_c = shag_c - 1;
+					boxs[shag_c].style.backgroundImage = 'url(player22.png)';
+					boxs[shag_c].style.backgroundSize = '100% 100%';
+					alert('Ты наступил на бомбу. Идешь на клетку ' + shag_c);
+					score_c = score_c - 30;
+					score_cc.innerHTML = score_c;
+				}
+			
+			if (shag_c == 25||shag_c == 9) {
+				boxs[shag_c].style.backgroundImage = 'none';
+					shag_c = shag_c + 5;
+					boxs[shag_c].style.backgroundImage = 'url(player22.png)';
+					boxs[shag_c].style.backgroundSize = '100% 100%';
+					alert('ты попал на ускоритель. идешь на ' + shag_c);
+					score_c = score_c + 50;
+					score_cc.innerHTML = score_c;
+			}
+			if (shag_c == 13||shag_c == 29) {
+					alert('ты попал на БОНУС ');
+					score_c = score_c + 500;
+					score_cc.innerHTML = score_c;
+			}
+			
+
+		}	
+	}
+	cnopka.onclick = function(){
+		level3.style.display = 'none';
+		level4.style.display = 'block';
+	}
+	cnopka2.onclick = function(){
+		level4.style.display = 'none';
+		level5.style.display = 'block';
+	}
+</script>
